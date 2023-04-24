@@ -1,6 +1,7 @@
 # main program
 
 import pygame as pg
+import asyncio
 from settings import *
 from sprites import *
 
@@ -500,26 +501,30 @@ class Game:
             self.click = True
 
 # Main Program
+async def main():
+    g = Game()
 
-g = Game()
+    while g.running == True:
+        # change screens if necessary
+        if g.intro == True:
+            g.show_intro_screen()
+        elif g.levels == True:
+            g.show_levels_screen()
+        elif g.instructions == True:
+            g.show_instructions_screen()
+        elif g.playing == True:
+            g.new()
+            g.run()
+            
+        elif g.win == True:
+            g.show_win_screen()
+        elif g.lose == True:
+            g.show_lose_screen()
 
-while g.running == True:
-    # change screens if necessary
-    if g.intro == True:
-        g.show_intro_screen()
-    elif g.levels == True:
-        g.show_levels_screen()
-    elif g.instructions == True:
-        g.show_instructions_screen()
-    elif g.playing == True:
-        g.new()
-        g.run()
-        
-    elif g.win == True:
-        g.show_win_screen()
-    elif g.lose == True:
-        g.show_lose_screen()
-        
-g.show_exit_screen()
+        await asyncio.sleep(0)
+            
+    g.show_exit_screen()
 
-pg.quit()
+    pg.quit()
+
+asyncio.run(main())
