@@ -475,7 +475,7 @@ class Game:
     def message_display(self,text,size,x,y,center=False, color=BLACK):
         '''displays a text message'''
         #pygame.font.match_font(name,bold=0,italic=0)
-        font = pg.font.Font('C:\\WINDOWS\\Fonts\\ARIALN.TTF',size)
+        font = pg.font.Font('ARIALN.TTF',size)
 
         textSurf = font.render(text,True,color) # creates surface
                                                 # with text rendered on it
