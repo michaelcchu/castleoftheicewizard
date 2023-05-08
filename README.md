@@ -17,7 +17,7 @@ venv\Scripts\activate
 
 - then type
 
-pyinstaller --onefile --add-data resources;resources main.py
+pyinstaller --onefile --add-data resources;resources main.pyw
 
 C) to edit the python/pygame code:
 - open main.py, sprites.py, settings.py, and pathFinder.py

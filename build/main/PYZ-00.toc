@@ -372,7 +372,7 @@
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\\lib\\optparse.py',
    'PYMODULE'),
   ('pathFinder',
-   'C:\\Users\\michael\\Documents\\GitHub\\castleoftheicewizard\\pathFinder.py',
+   'C:\\Users\\michael\\Documents\\GitHub\\castleoftheicewizard\\pathFinder.pyw',
    'PYMODULE'),
   ('pdb',
    'C:\\Program '
@@ -522,7 +522,7 @@
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\\lib\\selectors.py',
    'PYMODULE'),
   ('settings',
-   'C:\\Users\\michael\\Documents\\GitHub\\castleoftheicewizard\\settings.py',
+   'C:\\Users\\michael\\Documents\\GitHub\\castleoftheicewizard\\settings.pyw',
    'PYMODULE'),
   ('shlex',
    'C:\\Program '
@@ -545,7 +545,7 @@
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\\lib\\socketserver.py',
    'PYMODULE'),
   ('sprites',
-   'C:\\Users\\michael\\Documents\\GitHub\\castleoftheicewizard\\sprites.py',
+   'C:\\Users\\michael\\Documents\\GitHub\\castleoftheicewizard\\sprites.pyw',
    'PYMODULE'),
   ('ssl',
    'C:\\Program '
