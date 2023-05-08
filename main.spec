@@ -6,9 +6,9 @@ block_cipher = None
 
 a = Analysis(
     ['main.py'],
-    pathex=['.\\'],
+    pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('ARIALN.TTF', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

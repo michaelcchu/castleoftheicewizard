@@ -463,7 +463,8 @@ class Ice(pg.sprite.Sprite):
         self.game = game
         
         # Create Ice Image
-        self.image = pg.image.load('iceblock_'+str(length)+'.png')
+        self.image = pg.image.load(path('resources/iceblock_'+str(length)
+                                        +'.png'))
         self.image = pg.transform.scale(self.image,\
                             (TILESIZE*length,TILESIZE))
                 

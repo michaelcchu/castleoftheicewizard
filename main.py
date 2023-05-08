@@ -1,9 +1,10 @@
 # main program
 
 import pygame as pg
-import asyncio
+
 from settings import *
 from sprites import *
+from pathFinder import *
 
 class Game:
     
@@ -38,8 +39,8 @@ class Game:
         self.click = False
 
         # Initialize Music
-        self.intro_audio = pg.mixer.Sound('intro_audio.ogg')
-        self.game_audio = pg.mixer.Sound('game_audio.ogg')
+        self.intro_audio = pg.mixer.Sound(path('resources/intro_audio.ogg'))
+        self.game_audio = pg.mixer.Sound(path('resources/game_audio.ogg'))
         
         self.intro_audio.play(-1)
         
@@ -200,7 +201,7 @@ class Game:
         self.screen.fill(CYAN)
         self.message_display('Castle of the Ice Wizard',36,25,25)   
         self.message_display('Developer: Michael Chu',16,30,75)   
-        wiz = pg.image.load('wizard_left.png')
+        wiz = pg.image.load(path('resources/wizard_left.png'))
         wiz = pg.transform.scale(wiz,(200,240))
         self.screen.blit(wiz,(350,150))
         
@@ -248,11 +249,11 @@ class Game:
         for m in messageList:
             self.message_display(m[0],m[1],m[2],m[3])
 
-        wizRight = pg.image.load('wizard_right.png')
-        wizLeft = pg.image.load('wizard_left.png')
-        arrowRight = pg.image.load('right_arrow.jpeg')
-        arrowLeft = pg.image.load('left_arrow.jpeg')
-        arrowUp = pg.image.load('up_arrow.jpeg')
+        wizRight = pg.image.load(path('resources/wizard_right.png'))
+        wizLeft = pg.image.load(path('resources/wizard_left.png'))
+        arrowRight = pg.image.load(path('resources/right_arrow.jpeg'))
+        arrowLeft = pg.image.load(path('resources/left_arrow.jpeg'))
+        arrowUp = pg.image.load(path('resources/up_arrow.jpeg'))
         
         wizRight = pg.transform.scale(wizRight,(20,30))
         wizLeft = pg.transform.scale(wizLeft,(20,30))
@@ -427,25 +428,25 @@ class Game:
                 self.click = False
                 if nscreen == 'playing':
                     if msg == 'Level 1':
-                        self.level = 'map1.txt'
+                        self.level = path('resources/map1.txt')
                     elif msg == 'Level 2':
-                        self.level = 'map2.txt'
+                        self.level = path('resources/map2.txt')
                     elif msg == 'Level 3':
-                        self.level = 'map3.txt'
+                        self.level = path('resources/map3.txt')
                     elif msg == 'Level 4':
-                        self.level = 'map4.txt'
+                        self.level = path('resources/map4.txt')
                     elif msg == 'Level 5':
-                        self.level = 'map5.txt'
+                        self.level = path('resources/map5.txt')
                     elif msg == 'Level 6':
-                        self.level = 'map6.txt'
+                        self.level = path('resources/map6.txt')
                     elif msg == 'Level 7':
-                        self.level = 'map7.txt'
+                        self.level = path('resources/map7.txt')
                     elif msg == 'Level 8':
-                        self.level = 'map8.txt'
+                        self.level = path('resources/map8.txt')
                     elif msg == 'Level 9':
-                        self.level = 'map9.txt'
+                        self.level = path('resources/map9.txt')
                     elif msg == 'Level 10':
-                        self.level = 'map10.txt'
+                        self.level = path('resources/map10.txt')
                         
                 return True
         else:
@@ -475,7 +476,7 @@ class Game:
     def message_display(self,text,size,x,y,center=False, color=BLACK):
         '''displays a text message'''
         #pygame.font.match_font(name,bold=0,italic=0)
-        font = pg.font.Font('ARIALN.TTF',size)
+        font = pg.font.Font(path('resources/ARIALN.TTF'),size)
 
         textSurf = font.render(text,True,color) # creates surface
                                                 # with text rendered on it
@@ -501,30 +502,26 @@ class Game:
             self.click = True
 
 # Main Program
-async def main():
-    g = Game()
 
-    while g.running == True:
-        # change screens if necessary
-        if g.intro == True:
-            g.show_intro_screen()
-        elif g.levels == True:
-            g.show_levels_screen()
-        elif g.instructions == True:
-            g.show_instructions_screen()
-        elif g.playing == True:
-            g.new()
-            g.run()
-            
-        elif g.win == True:
-            g.show_win_screen()
-        elif g.lose == True:
-            g.show_lose_screen()
+g = Game()
 
-        await asyncio.sleep(0)
-            
-    g.show_exit_screen()
+while g.running == True:
+    # change screens if necessary
+    if g.intro == True:
+        g.show_intro_screen()
+    elif g.levels == True:
+        g.show_levels_screen()
+    elif g.instructions == True:
+        g.show_instructions_screen()
+    elif g.playing == True:
+        g.new()
+        g.run()
+        
+    elif g.win == True:
+        g.show_win_screen()
+    elif g.lose == True:
+        g.show_lose_screen()
+        
+g.show_exit_screen()
 
-    pg.quit()
-
-asyncio.run(main())
+pg.quit()
