@@ -3,6 +3,7 @@
 import pygame as pg
 import math
 from settings import *
+from pathFinder import *
 
 class SpriteFunctions(pg.sprite.Sprite):
     def __init__(self):
@@ -89,8 +90,8 @@ class Player(pg.sprite.Sprite):
         # Create Player Image
         self.width = TILESIZE - 14
         self.height = TILESIZE - 6
-        self.imageRight = pg.image.load('wizard_right.png')
-        self.imageLeft = pg.image.load('wizard_left.png')
+        self.imageRight = pg.image.load(path('resources/wizard_right.png'))
+        self.imageLeft = pg.image.load(path('resources/wizard_left.png'))
         self.imageRight = pg.transform.scale\
                           (self.imageRight,(self.width,self.height))
         self.imageLeft = pg.transform.scale\
@@ -112,10 +113,11 @@ class Player(pg.sprite.Sprite):
         self.fallRate = 2
 
         # Define Sound Effects
-        self.jump_audio = pg.mixer.Sound('jump.ogg')
-        self.push_audio = pg.mixer.Sound('push.ogg')
-        self.place_audio = pg.mixer.Sound('place_iceblock.ogg')
-        self.destroy_audio = pg.mixer.Sound('remove_iceblock.ogg')
+        self.jump_audio = pg.mixer.Sound(path('resources/jump.ogg'))
+        self.push_audio = pg.mixer.Sound(path('resources/push.ogg'))
+        self.place_audio = pg.mixer.Sound(path('resources/place_iceblock.ogg'))
+        self.destroy_audio = pg.mixer.Sound(path(
+            'resources/remove_iceblock.ogg'))
 
         for audio in [self.jump_audio,self.place_audio,\
                       self.destroy_audio]:
@@ -483,7 +485,7 @@ class Ice(pg.sprite.Sprite):
         self.falling = False
 
         # Sound Effects
-        self.fire_audio = pg.mixer.Sound('fire.ogg')
+        self.fire_audio = pg.mixer.Sound(path('resources/fire.ogg'))
 
         self.fire_audio.set_volume(0.35)
 
@@ -566,7 +568,7 @@ class Fire(pg.sprite.Sprite):
         self.game = game
         
         # Create Ice Image
-        self.image = pg.image.load('flame.png')
+        self.image = pg.image.load(path('resources/flame.png'))
         self.image = pg.transform.scale(self.image,\
                             (TILESIZE,TILESIZE))
 
