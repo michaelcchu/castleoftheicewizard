@@ -2,8 +2,7 @@ The purpose of this repository is to provide a distribution version of the game
 Castle of the Ice Wizard. The original code can be found in the repository
 called "Castle-of-the-Ice-Wizard".
 
-[Update 6/7/23: another option is to play on Replit: https://replit.com/@MichaelChu1/Castle-of-the-Ice-Wizard
-Demo: https://www.youtube.com/watch?v=T1YTO9naOAY]
+Update (6/7/23): another option is to play on Replit: https://replit.com/@MichaelChu1/Castle-of-the-Ice-Wizard (see demo: https://www.youtube.com/watch?v=T1YTO9naOAY)
 
 Instructions:
 - download the repository
